@@ -25,7 +25,12 @@ class Application(tornado.web.Application):
 
 class MainHandler(tornado.web.RequestHandler):
   def get(self):
-    self.write("Hello World")
+    self.render(
+      "index.html",
+      page_title = "Here's a page",
+      header_text = "Heading",
+      footer_text = "Site by Matt Parlette",
+    )
 
 if __name__ == "__main__":
   app = Application()
